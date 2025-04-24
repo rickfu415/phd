@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh2myju0r4fs8"]
+
+[ext_resource type="PackedScene" uid="uid://cd2nt8nt86bwa" path="res://scenes/player.tscn" id="1_o5qli"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(2000, 20)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(100, 400)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(1000, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -1000.0
+offset_top = -10.0
+offset_right = 1000.0
+offset_bottom = 10.0
+color = Color(0.337255, 0.337255, 0.337255, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(500, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+scale = Vector2(0.2, 1)
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="ColorRect" type="ColorRect" parent="Platform1"]
+offset_left = -200.0
+offset_top = -10.0
+offset_right = 200.0
+offset_bottom = 10.0
+scale = Vector2(0.2, 1)
+color = Color(0.337255, 0.337255, 0.337255, 1)
